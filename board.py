@@ -9,7 +9,7 @@ class Board:
         # self.print_board()
     
     def set_mines(self, num_mines: int, num_non_mines: int):
-        self.mines = ["M" for _ in range(num_mines)] + [0 for _ in range(num_non_mines)]
+        self.mines = ["💣" for _ in range(num_mines)] + [0 for _ in range(num_non_mines)]
         random.shuffle(self.mines)
 
     def make_board(self):
@@ -29,7 +29,7 @@ class Board:
         for i in range(y - 1, y + 2):
             for j in range(x - 1, x + 2):
                 if i >= 0 and j >= 0 and i < self.height and j < self.width:
-                    if self.board[i][j] == "M":
+                    if self.board[i][j] == "💣":
                         mines += 1
         return mines
 
