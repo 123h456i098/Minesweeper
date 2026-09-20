@@ -67,17 +67,16 @@ def do_hint():
         win.grid_slaves(y, x)[0].configure(bg="purple", fg="yellow")
 
 def game_over(message):
-    print(message)
     for x in range(WIDTH):
         for y in range(HEIGHT):
             win.grid_slaves(y, x)[0].unbind("<Button-1>")
             win.grid_slaves(y, x)[0].unbind("<Button-2>")
             win.grid_slaves(y, x)[0].unbind("<Button-3>")
-    hint_button.config(command=None)
+    hint_button.config(command=lambda: None)
     popup = tk.Toplevel(win)
     popup.title("Game over")
     label = tk.Label(popup, text=message)
-    label.pack(padx=20, pady=20)
+    label.pack(padx=50, pady=40)
 
 
 win = tk.Tk()
